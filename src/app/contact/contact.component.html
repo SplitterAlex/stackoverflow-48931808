@@ -1,0 +1,49 @@
+<mat-card>
+  <mat-card-title>
+    <h3>Contact</h3>
+  </mat-card-title>
+
+  <mat-card-content>
+    <form [formGroup]="contactForm" novalidate (ngSubmit)="onSubmit()">
+
+
+      <app-form #childForm></app-form>
+
+      <div class="subject">
+        <mat-form-field>
+          <input matInput placeholder="Subject" formControlName="subject">
+          <mat-error *ngIf="contactForm.hasError('required', 'subject')">
+            Please provide a subject
+          </mat-error>
+          <mat-error *ngIf="contactForm.hasError('minlength', 'subject') &&
+                    !contactForm.hasError('required', 'subject')">
+            Minimum 5 characters
+          </mat-error>
+
+        </mat-form-field>
+      </div>
+
+      <div class="message">
+        <mat-form-field>
+          <textarea matInput placeholder="Message" matTextareaAutosize matAutosizeMinRows="5" matAutosizeMaxRows="10" formControlName="message">
+      </textarea>
+          <mat-error *ngIf="contactForm.hasError('required', 'message')">
+            Please provide a message
+          </mat-error>
+          <mat-error *ngIf="contactForm.hasError('minlength', 'message') &&
+                    !contactForm.hasError('required', 'message')">
+            Minimum 10 characters
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" type="submit">
+      Submit
+    </button>
+    <button mat-raised-button type="reset" (click)="childForm.fgd.onReset();">Reset</button>
+  </mat-card-actions>
+</mat-card>

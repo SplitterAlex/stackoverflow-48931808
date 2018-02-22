@@ -1,0 +1,35 @@
+<div [formGroup]="form" novalidate>
+  <div class="firstName">
+    <mat-form-field>
+      <input matInput placeholder="First Name"
+             formControlName="firstName">
+
+      <mat-error>
+        Please provide first name
+      </mat-error>
+
+    </mat-form-field>
+  </div>
+
+  <div class="lastName">
+    <mat-form-field>
+      <input matInput placeholder="Last Name" formControlName="lastName">
+      <mat-error [hidden]="form.hasError('required', 'lastName')">
+        Please provide last name
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="email">
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email">
+
+      <mat-error *ngIf="emailCtrl.hasError('required')">
+        Please provide an email
+      </mat-error>
+      <mat-error *ngIf="emailCtrl.hasError('email') && !emailCtrl.hasError('required')">
+        Invalid email
+      </mat-error>
+    </mat-form-field>
+  </div>
+</div>
