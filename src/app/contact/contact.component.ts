@@ -1,5 +1,5 @@
-import { FormComponent } from './../shared/form/form.component';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { SharedFormComponent } from './../shared/shared-form/shared-form.component';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit, AfterViewInit {
 
- @ViewChild(FormComponent) childForm: FormComponent;
+ @ViewChild(SharedFormComponent) childForm: SharedFormComponent;
 
   contactForm: FormGroup;
 
@@ -37,5 +37,10 @@ export class ContactComponent implements OnInit, AfterViewInit {
     }
 
     console.log('Contact Form is Valid!', this.contactForm.getRawValue());
+  }
+
+  onReset(fgd: NgForm) {
+    fgd.onReset();
+    this.childForm.fgd.onReset();
   }
 }

@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { PersonalinfoComponent } from './personalinfo/personalinfo.component';
 import { ContactComponent } from './contact/contact.component';
-import { FormComponent } from './shared/form/form.component';
+import { SharedFormComponent } from './shared/shared-form/shared-form.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -23,7 +23,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     AppComponent,
     PersonalinfoComponent,
     ContactComponent,
-    FormComponent
+    SharedFormComponent
   ],
   imports: [
     MatCardModule,

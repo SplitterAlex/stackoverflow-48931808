@@ -2,11 +2,11 @@ import { Component, ViewChild, Optional } from '@angular/core';
 import { FormGroup, FormBuilder, FormGroupDirective, Validators, NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'app-shared-form',
+  templateUrl: './shared-form.component.html',
+  styles: []
 })
-export class FormComponent {
+export class SharedFormComponent {
 
   @ViewChild(FormGroupDirective) fgd: FormGroupDirective;
 
