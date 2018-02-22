@@ -7,7 +7,7 @@ import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit, AfterViewInit {
+export class ContactComponent implements AfterViewInit {
 
  @ViewChild(SharedFormComponent) childForm: SharedFormComponent;
 
@@ -24,18 +24,15 @@ export class ContactComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit() {}
-
   ngAfterViewInit() {
     this.contactForm.addControl('personalInfo', this.childForm.form);
-    this.childForm.form.setParent(this.contactForm);
+    // this.childForm.form.setParent(this.contactForm);
   }
 
   onSubmit() {
     if (!this.contactForm.valid) {
       return;
     }
-
     console.log('Contact Form is Valid!', this.contactForm.getRawValue());
   }
 

@@ -16,29 +16,20 @@ export class SharedFormComponent {
     return this.form.get('email');
   }
 
-
   constructor(private fb: FormBuilder,
               @Optional() fgdParent: FormGroupDirective) {
     this.createForm();
     if (fgdParent) {
-      fgdParent.ngSubmit.subscribe(
-        data => {
-          console.log('Subscribe Event From Parent received');
-          this.fgd.onSubmit(null);
-        }
-      );
+      fgdParent.ngSubmit.subscribe(() => this.fgd.onSubmit(null));
     }
-   }
+  }
 
-
-   createForm() {
-
+  createForm() {
     this.form = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-
     });
   }
-
 }
+
